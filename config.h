@@ -19,6 +19,21 @@ static const char *colors[][3]      = {
 	[SchemeSel]  = { col_gray4, col_cyan,  col_red  },
 };
 
+/* scratchpads */
+typedef struct {
+	const char *name;
+	const void *cmd;
+} Sp;
+const char *spcmd1[] = {"st", "-n", "spterm01", "-g", "80x24", NULL };
+const char *spcmd2[] = {"st", "-n", "spterm02", "-g", "80x24", NULL };
+const char *spcmd3[] = {"st", "-n", "spterm03", "-g", "80x24", NULL };
+static Sp scratchpads[] = {
+	/* name          cmd  */
+	{"spterm01",    spcmd1},
+	{"spterm02",    spcmd2},
+	{"spterm03",    spcmd3},
+};
+
 /* tagging */
 static const char *tags[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9" };
 
@@ -28,14 +43,17 @@ static const Rule rules[] = {
 	 *	WM_NAME(STRING) = title
 	 */
 	/* class      instance    title       tags mask     isfloating   monitor */
-	{ "Gimp",     NULL,       NULL,       0,            1,           -1 },
-	{ "Firefox",  NULL,       NULL,       1 << 8,       0,           -1 },
+	{ "Gimp",	  NULL,			NULL,		0,				1,			 -1 },
+	{ "Firefox",  NULL,			NULL,		1 << 8,			0,			 -1 },
+	{ NULL,		  "spterm01",	NULL,		SPTAG(0),		1,			 -1 },
+	{ NULL,		  "spterm02",	NULL,		SPTAG(1),		1,			 -1 },
+	{ NULL,		  "spterm03",	NULL,		SPTAG(2),		1,			 -1 },
 };
 
 /* window swallowing */
 static const int swaldecay = 3;
 static const int swalretroactive = 1;
-static const char swalsymbol[] = "👅";
+static const char swalsymbol[] = "📓";
 
 /* layout(s) */
 static const float mfact     = 0.55; /* factor of master area size [0.05..0.95] */
@@ -91,6 +109,9 @@ static Key keys[] = {
 	{ MODKEY,                       XK_period, focusmon,       {.i = +1 } },
 	{ MODKEY|ShiftMask,             XK_comma,  tagmon,         {.i = -1 } },
 	{ MODKEY|ShiftMask,             XK_period, tagmon,         {.i = +1 } },
+	{ MODKEY|ShiftMask,      		XK_Return, togglescratch,  {.ui = 0 } },
+	{ MODKEY,            			XK_grave,  togglescratch,  {.ui = 1 } },
+	{ MODKEY|ShiftMask,            	XK_grave,  togglescratch,  {.ui = 2 } },
 	{ MODKEY,                       XK_u,      swalstopsel,    {0} },
 	TAGKEYS(                        XK_1,                      0)
 	TAGKEYS(                        XK_2,                      1)
@@ -115,6 +136,7 @@ static Button buttons[] = {
 	{ ClkClientWin,         MODKEY,         Button1,        movemouse,      {0} },
 	{ ClkClientWin,         MODKEY,         Button2,        togglefloating, {0} },
 	{ ClkClientWin,         MODKEY,         Button3,        resizemouse,    {0} },
+	/* { ClkClientWin,         MODKEY,         Button1,        resizemouse,    {0} }, */
 	{ ClkClientWin,         MODKEY|ShiftMask, Button1,      swalmouse,      {0} },
 	{ ClkTagBar,            0,              Button1,        view,           {0} },
 	{ ClkTagBar,            0,              Button3,        toggleview,     {0} },
