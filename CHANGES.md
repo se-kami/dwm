@@ -7,3 +7,4 @@
 6. change border to 2px
 7. change border color to red
 8. add swallow patch
+9. scratchpads patch
