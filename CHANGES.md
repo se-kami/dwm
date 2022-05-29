@@ -12,3 +12,4 @@
 11. pertag patch
 12. status cmd patch
 13. cfact patch
+14. vanity gaps patch
