@@ -10,3 +10,5 @@
 09. scratchpads patch
 10. no border patch
 11. pertag patch
+12. status cmd patch
+13. cfact patch
