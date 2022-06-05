@@ -2037,8 +2037,10 @@ sigchld(int unused)
 int
 solitary(Client *c)
 {
-	return ((nexttiled(c->mon->clients) == c && !nexttiled(c->next))
-	    || &monocle == c->mon->lt[c->mon->sellt]->arrange)
+	return ((nexttiled(c->mon->clients) == c
+        && !nexttiled(c->next)))
+        /* border in monocle when more than one window */
+	    /* || &monocle == c->mon->lt[c->mon->sellt]->arrange) */
 	    && !c->isfullscreen && !c->isfloating
 	    && NULL != c->mon->lt[c->mon->sellt]->arrange;
 }

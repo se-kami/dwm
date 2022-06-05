@@ -14,3 +14,5 @@
 13. cfact patch
 14. vanity gaps patch
 15. stacker patch
+16. change monocle to also use vanity gaps
+17. add border to monocle layout when there is more than one window
