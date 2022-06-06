@@ -17,3 +17,4 @@
 16. change monocle to also use vanity gaps
 17. add border to monocle layout when there is more than one window
 18. fix resize issues for swallow patch
+19. make swallower window to never be floating

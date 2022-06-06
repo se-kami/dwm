@@ -2368,7 +2368,8 @@ swalstop(Client *swee, Client *root)
 	root->next = swer;
 	swer->snext = root->snext;
 	root->snext = swer;
-	swer->isfloating = swee->isfloating;
+    /* swer is never floating */
+	/* swer->isfloating = swee->isfloating; */
 
 	/* Configure geometry params obtained from patches (e.g. cfacts) here. */
 	swer->cfact = 1.0;
