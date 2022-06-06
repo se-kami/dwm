@@ -2122,7 +2122,7 @@ swal(Client *swer, Client *swee, int manage)
 	c->swallowedby = swer;
 
 	/* Configure geometry params obtained from patches (e.g. cfacts) here. */
-	// swee->cfact = swer->cfact;
+	swee->cfact = swer->cfact;
 
 	/* ICCCM 4.1.3.1 */
 	setclientstate(swer, WithdrawnState);
@@ -2371,7 +2371,7 @@ swalstop(Client *swee, Client *root)
 	swer->isfloating = swee->isfloating;
 
 	/* Configure geometry params obtained from patches (e.g. cfacts) here. */
-	// swer->cfact = 1.0;
+	swer->cfact = 1.0;
 
 	/* If swer is not in tiling mode reuse swee's geometry. */
 	if (swer->isfloating || !root->mon->lt[root->mon->sellt]->arrange) {
