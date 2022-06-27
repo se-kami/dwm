@@ -18,3 +18,4 @@
 17. add border to monocle layout when there is more than one window
 18. fix resize issues for swallow patch
 19. make swallower window to never be floating
+20. change emoji font to 20
