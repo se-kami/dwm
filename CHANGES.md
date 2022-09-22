@@ -19,3 +19,4 @@
 18. fix resize issues for swallow patch
 19. make swallower window to never be floating
 20. change emoji font to 20
+21. change gap sizes
