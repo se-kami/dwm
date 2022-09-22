@@ -20,3 +20,4 @@
 19. make swallower window to never be floating
 20. change emoji font to 20
 21. change gap sizes
+22. change gap toggle bindings
